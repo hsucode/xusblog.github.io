@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html  lang=zh-CN>
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  
+    
+    <link rel="shortcut icon" href="https://www.pinclipart.com/picdir/middle/194-1949079_free-blogger-logo-psd-transparent-blogspot-logo-png.png ">
+    
+    
+    <link rel="icon" type="image/png" href="/xusblog.github.io/images/favicon-android.png " sizes="192x192">
+    
+    
+    <link rel="apple-touch-icon" href="/xusblog.github.io/images/favicon-apple.png " sizes="180x180">
+    
+  
+  <!-- title -->
+  <title>XUS BLOG CATIA曲面优化 </title>
+  <!-- styles -->
+  <!-- styles -->
+
+<link rel="stylesheet" href="/xusblog.github.io/styles/global.css">
+
+  <!-- rss -->
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+  <body>
+    <header id="header">
+  
+  <nav class="menu menu--right">
+  
+    <a class="menu__item" href="/xusblog.github.io/">主页</a>
+    <a class="menu__item" href="/xusblog.github.io/archives/">归档</a>
+    <a class="menu__item" href="/xusblog.github.io/categories/">专题</a>
+    <a class="menu__item" href="/xusblog.github.io/tags/">标签</a>
+    <!-- <a class="menu__item" href="/xusblog.github.io/">作品</a> -->
+    <!-- <a class="menu__item" href="/xusblog.github.io/">关于</a> -->
+  </nav>
+</header>
+    <main>
+      <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post__header">
+  <h1 class="post__title">CATIA曲面优化</h1>
+  
+  
+  <div class="post__meta">
+    
+<time class="post__date" datetime="2014-04-16T01:44:30.000Z" itemprop="datePublished">
+  
+  <i class="blogfont">&#xedff;</i>
+  
+  2014-04-16 09:44:30
+</time>
+
+    
+<div class="post__category">
+  <i class="blogfont">&#xe62d;</i>
+  <a class="category-link" href="/xusblog.github.io/categories/FACADE/">FACADE</a>
+</div>
+  
+
+    
+<div class="post__tag">
+  <i class="blogfont">&#xe7ec;</i>
+  <a class="tag-link-link" href="/xusblog.github.io/tags/FACADE/" rel="tag">FACADE</a>
+</div>
+
+
+    <div id="/xusblog.github.io/2014/04/16/CATIA_FACADE_SURFACE_OPTIMIZATION/CATIA_FACADE_SURFACE_OPTIMIZATION/" class="leancloud_visitors post__stat" data-flag-title="CATIA曲面优化">
+  <i class="blogfont">&#xe672;</i>
+  <span class="leancloud-visitors-count">loading...</span>
+</div>
+  </div>
+</header>
+  <aside class="post__aside">
+  <div class="post__actions">
+    <a id="backTop" class="post__top" href="javascript:">
+      <i class="blogfont">&#xe6b1;</i><!-- 回到顶部 -->
+    </a>
+<!--     <a id="share" class="post__share" href="javascript:">
+      <i class="blogfont">&#xe6c1;</i>
+    </a> -->
+  </div>
+  <ol class="post__toc"><li class="post__toc-item post__toc-level-2"><a class="post__toc-link" href="#%E8%87%AA%E7%94%B1%E5%BA%A6%E5%AE%9A%E4%B9%89"><span class="post__toc-text">自由度定义</span></a></li><li class="post__toc-item post__toc-level-2"><a class="post__toc-link" href="#%E8%A7%86%E9%A2%91"><span class="post__toc-text">视频</span></a></li><li class="post__toc-item post__toc-level-2"><a class="post__toc-link" href="#Rhino-code"><span class="post__toc-text">Rhino code</span></a></li></ol>
+</aside>
+  <div class="post__content" itemprop="articleBody">
+    <h2 id="自由度定义"><a href="#自由度定义" class="headerlink" title="自由度定义"></a>自由度定义</h2><pre><code>X定位点
+Y定位点
+Z定位点
+圆锥夹角（当夹角0度为圆柱）
+圆锥半径
+U方向夹角
+V方向教教
+扭转角度
+</code></pre>
+<h2 id="视频"><a href="#视频" class="headerlink" title="视频"></a>视频</h2><video src="V6-自由曲面优化.mp4" type='video/mp4' controls='controls'  width='100%' height='100%'>
+</video>
+
+
+<h2 id="Rhino-code"><a href="#Rhino-code" class="headerlink" title="Rhino code"></a>Rhino code</h2><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function">Result <span class="title">addLine</span>(<span class="params">RhinoDoc doc</span>)</span></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    Point3d pt0;</span><br><span class="line">    <span class="keyword">using</span> (GetPoint getPointAction = <span class="keyword">new</span> GetPoint())</span><br><span class="line">    &#123;</span><br><span class="line">        getPointAction.SetCommandPrompt(<span class="string">&quot;Please select the start point&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span> (getPointAction.Get() != GetResult.Point)</span><br><span class="line">        &#123;</span><br><span class="line">            RhinoApp.WriteLine(<span class="string">&quot;No start point was selected.&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span> getPointAction.CommandResult();</span><br><span class="line">        &#125;</span><br><span class="line">        pt0 = getPointAction.Point();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Point3d pt1;</span><br><span class="line">    <span class="keyword">using</span> (GetPoint getPointAction = <span class="keyword">new</span> GetPoint())</span><br><span class="line">    &#123;</span><br><span class="line">        getPointAction.SetCommandPrompt(<span class="string">&quot;Please select the end point&quot;</span>);</span><br><span class="line">        getPointAction.SetBasePoint(pt0, <span class="literal">true</span>);</span><br><span class="line">        getPointAction.DynamicDraw +=</span><br><span class="line">          (sender, e) =&gt; e.Display.DrawLine(pt0, e.CurrentPoint, System.Drawing.Color.DarkRed);</span><br><span class="line">        <span class="keyword">if</span> (getPointAction.Get() != GetResult.Point)</span><br><span class="line">        &#123;</span><br><span class="line">            RhinoApp.WriteLine(<span class="string">&quot;No end point was selected.&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span> getPointAction.CommandResult();</span><br><span class="line">        &#125;</span><br><span class="line">        pt1 = getPointAction.Point();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    doc.Objects.AddLine(pt0, pt1);</span><br><span class="line">    doc.Views.Redraw();</span><br><span class="line">    RhinoApp.WriteLine(<span class="string">&quot;The &#123;0&#125; command added one line to the document.&quot;</span>, EnglishName);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> Result.Success;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+  </div>
+  
+</article>
+    </main>
+    <footer id="footer">
+  Copyright &copy;
+  2023
+  SONG HSU
+  
+  
+    <a class="social-links" target="_blank" rel="noopener" href="https://github.com/hsucode"><i class="blogfont">&#xe6b7; </i></a>
+  
+    <a class="social-links" href="mailto:song.hsu@163.com"><i class="blogfont">&#xe61a; </i></a>
+  
+    <a class="social-links" target="_blank" rel="noopener" href="https://xuscode.github.io/bimnote.github.io/"><i class="blogfont">&#xe640; </i></a>
+  
+  
+</footer>
+    <!-- scripts -->
+
+<script src="/xusblog.github.io/scripts/main.js"></script>
+
+  </body>
+</html>
